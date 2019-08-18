@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  proxy-shadowsocks-server:
+    image: proxy-ss:latest
+    command: >-
+        ss-server
+        -s 0.0.0.0
+        -p 8338
+        -k 123456
+        -m aes-256-gcm
+        -t 300
+        -d 8.8.8.8,8.8.4.4
+        -u
+    ports:
+      - "8388:8388/tcp"
+      - "8388:8388/udp"
+    networks:
+      - proxy
+    restart: always
+
+networks:
+  proxy:
+    driver: bridge

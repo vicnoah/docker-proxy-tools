@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  proxy-udp2raw-server:
+    image: proxy-udp2raw:latest
+    cap_add:
+      - NET_ADMIN
+    command: >-
+      -s
+      -l 0.0.0.0:4096
+      -r 192.168.0.1:4096
+      -k 123456
+      -a
+      --cipher-mode aes128cfb
+      --auth-mode hmac_sha1
+    expose:
+      - 4096
+    networks:
+      - proxy
+    restart: always
+
+networks:
+  proxy:
+    driver: bridge

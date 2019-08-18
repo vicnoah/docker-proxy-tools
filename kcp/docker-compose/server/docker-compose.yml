@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  proxy-kcptun-server:
+    image: proxy-kcptun:latest
+    command: >-
+      server -t "127.0.0.1:8388"
+      -l ":4000"
+      -mode fast3
+      -nocomp
+      -sockbuf 16777217
+      -dscp 46
+    expose:
+      - 4000/udp
+    networks:
+      - proxy
+    restart: always
+
+networks:
+  proxy:
+    driver: bridge

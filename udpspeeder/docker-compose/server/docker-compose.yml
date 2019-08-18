@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  proxy-udpspeederv2-server:
+    image: proxy-udpspeederv2:latest
+    command: >-
+        -s
+        -l0.0.0.0:6501
+        -r 127.0.0.1:6443
+        -f1:3,2:4,8:6,20:10
+        -k 123456
+    ports:
+      - "6501:6501/udp"
+    networks:
+      - proxy
+    restart: always
+
+networks:
+  proxy:
+    driver: bridge
