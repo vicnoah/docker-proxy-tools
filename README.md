@@ -107,40 +107,6 @@ services:
     depends_on:
       - proxy-udpspeederv2-server
     restart: always
-#  proxy-udp2raw-tcp-server:
-#    image: wuwengang/proxy-tools:udp2raw
-#    cap_add:
-#      - NET_ADMIN
-#    command: >-
-#      -s
-#      -l0.0.0.0:7096
-#      -r 127.0.0.1:6500
-#      -k 123456
-#      --cipher-mode xor
-#      --auth-mode simple
-#      --raw-mode faketcp
-#      -a
-#    network_mode: "host"
-#    depends_on:
-#      - proxy-kcptun-server
-#    restart: always
-#  proxy-udp2raw-udp-server:
-#    image: wuwengang/proxy-tools:udp2raw
-#    cap_add:
-#      - NET_ADMIN
-#    command: >-
-#      -s
-#      -l0.0.0.0:7097
-#      -r 127.0.0.1:6501
-#      -k 123456
-#      --cipher-mode xor
-#      --auth-mode simple
-#      --raw-mode faketcp
-#      -a
-#    network_mode: "host"
-#    depends_on:
-#      - proxy-udpspeederv2-server
-#    restart: always
 
 networks:
   proxy:
@@ -272,36 +238,6 @@ services:
       proxy:
         ipv4_address: 11.11.11.5
     restart: always
-#  proxy-udp2raw-tcp-client:
-#    image: wuwengang/proxy-tools:udp2raw
-#    cap_add:
-#      - NET_ADMIN
-#    command: >-
-#      -s
-#      -l0.0.0.0:7096
-#      -r 127.0.0.1:6500
-#      -k 123456
-#      --cipher-mode xor
-#      --auth-mode simple
-#      --raw-mode faketcp
-#      -a
-#    network_mode: "host"
-#    restart: always
-#  proxy-udp2raw-udp-client:
-#    image: wuwengang/proxy-tools:udp2raw
-#    cap_add:
-#      - NET_ADMIN
-#    command: >-
-#      -s
-#      -l0.0.0.0:7097
-#      -r 127.0.0.1:6501
-#      -k 123456
-#      --cipher-mode xor
-#      --auth-mode simple
-#      --raw-mode faketcp
-#      -a
-#    network_mode: "host"
-#    restart: always
 
 networks:
   proxy:
