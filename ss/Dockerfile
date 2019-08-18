@@ -3,13 +3,6 @@ FROM alpine:3.9
 LABEL maintainer="ryan"
 
 ENV DOWNLOAD_URL https://github.com/shadowsocks/shadowsocks-libev.git
-ENV SERVER_ADDR 0.0.0.0
-ENV SERVER_PORT 8388
-ENV PASSWORD=
-ENV METHOD      aes-256-gcm
-ENV TIMEOUT     300
-ENV DNS_ADDRS    8.8.8.8,8.8.4.4
-ENV ARGS=
 
 RUN set -ex \
  # Build environment setup
